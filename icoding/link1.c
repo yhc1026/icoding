@@ -25,7 +25,7 @@ typedef struct _lnklist *LinkList;
 
 void lnk_merge(LinkList A, LinkList B, LinkList C)
 {
-    A = A->next;
+    A = A->next; // 排除头部空节点
     B = B->next;
     while (A != NULL && B != NULL)
     {
