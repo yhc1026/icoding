@@ -22,11 +22,11 @@ void del_dupnum(SeqList *L)
     int prev = -1; // 前指针
     int curr = 0;  // 当前指针
 
-    while (curr <= L->last)
+    while (curr <= L->last) // 需要整体来看，整体完成删除节点的工作
     {
         if (L->elem[prev] == L->elem[curr])
         {
-            curr++; // 删除重复元素
+            curr++;
         }
         else
         {
