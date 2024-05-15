@@ -35,4 +35,40 @@ bool is_empty(Stack *S);          // 栈为空时返回 true，否则返回 fals
 
 bool path(BiTNode *root, BiTNode *node, Stack *s)
 {
+    init_stack(s);
+    BiTNode *cur = root;
+    BiTNode *tem = NULL;
+    if (is_empty(s) || cur == NULL || node == NULL)
+    {
+        return false;
+    }
+    while (cur != NULL || !is_empty(s))
+    {
+        while (cur != NULL)
+        {
+            push(s, cur);
+            if (cur == node)
+            {
+                return true;
+            }
+            cur = cur->left;
+        }
+        pop(s, cur);
+        top(s, cur);
+        while (cur)
+        {
+            if (cur->right == tem)
+            {
+                pop(s, cur);
+                top(s, cur);
+                tem = NULL;
+            }
+            else
+            {
+                cur = cur->right;
+                tem = cur->right;
+            }
+        }
+    }
+    return false;
 }
