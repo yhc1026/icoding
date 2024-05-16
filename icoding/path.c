@@ -70,5 +70,5 @@ bool path(BiTNode *root, BiTNode *node, Stack *s)
             }
         }
     }
-    return false;
+        return false;
 }
