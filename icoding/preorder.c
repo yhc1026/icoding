@@ -22,7 +22,7 @@ typedef struct Node
 typedef BiTNode *ElemType;
 typedef struct
 {
-    ElemType elem[Stack_Size];
+    ElemType elem[Stack_Size8p];
     int top;
 } Stack;
 
