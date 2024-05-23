@@ -2,7 +2,7 @@
 int main()
 {
     char arr[100] = {0};
-    scanf("%[^\n]s", arr);
+    scanf("%s", arr);
     char c = 0;
     int i = 0;
 
