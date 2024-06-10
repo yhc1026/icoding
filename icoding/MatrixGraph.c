@@ -52,42 +52,19 @@ bool matrix_insert_vertex(MatrixGraph *G, VertexType v)
 
 bool matrix_insert_arc(MatrixGraph *G, VertexType v, VertexType w)
 {
-    int cnt = 0, i = 0;
-    for (cnt = 0; cnt < G->arcnum; cnt++)
-    {
-        if (G->vertex[i] != v)
-        {
-            cnt++;
-        }
-        else
-        {
-            break;
-        }
-    }
-    if (cnt == G->vexnum)
-    {
-        return false;
-    }
-    cnt = 0;
-    i = 0;
-    for (cnt = 0; cnt < G->arcnum; cnt++)
-    {
-        if (G->vertex[i] != w)
-        {
-            cnt++;
-        }
-        else
-        {
-            break;
-        }
-    }
-    if (cnt == G->vexnum)
+    if (G == NULL)
     {
         return false;
     }
 
     int v1 = matrix_locate_vertex(G, v);
     int v2 = matrix_locate_vertex(G, w);
+
+    if (v1 == -1 || v2 == -1)
+    {
+        return false;
+    }
+
     if (G->type == DG)
     {
         if (G->arcs[v1][v2] != -1)
