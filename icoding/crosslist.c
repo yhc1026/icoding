@@ -40,31 +40,6 @@ int del_cross_list(PCrossList L, ElemType k);
 
 int init_cross_list(PCrossList L, const ElemType *A, int m, int n)
 {
-    int i = 0, cnt = 0;
-    OLink Rowhead = L->rowhead, Colhead = L->colhead;
-    OLink p = Rowhead;
-    int sz = sizeof(A) / sizeof(A[0]);
-
-    while (i < sz)
-    {
-        if (A[i] != 0)
-        {
-            p->value = A[i];
-            p = p->right;
-            cnt++;
-        }
-        i++;
-        if (p->row == n - 1)
-        {
-            Rowhead = Rowhead->down;
-            p = Rowhead;
-        }
-        if (p->col == m - 1 && p->row == n - 1)
-        {
-            break;
-        }
-    }
-    return cnt;
 }
 
 int del_cross_list(PCrossList L, ElemType k)
