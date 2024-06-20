@@ -20,22 +20,34 @@ typedef struct _seqlist SeqList;
 
 void odd_even(SeqList *L)
 {
-    int size = (L->last) - 1;
-    int t = 0;
-    int x = 0;
-    while (t < size && x + t < size - 1)
+    int i = 0, j = L->last;
+    while (1)
     {
-        if (L->elem[t] % 2 == 0)
+        if (i >= j)
         {
-            int n = L->elem[t];
-            L->elem[t] = L->elem[size - x];
-            L->elem[size - x] = n;
-
-            x++;
+            break;
+        }
+        if ((L->elem[i]) % 2 == 0 && (L->elem[j]) % 2 == 1)
+        {
+            int t = 0;
+            t = L->elem[i];
+            L->elem[i] = L->elem[j];
+            L->elem[j] = t;
+            i++;
+            j--;
+        }
+        else if ((L->elem[i]) % 2 == 1 && (L->elem[j]) % 2 == 0)
+        {
+            i++;
+            j--;
+        }
+        else if ((L->elem[i]) % 2 == 1 && (L->elem[j]) % 2 == 1)
+        {
+            i++;
         }
         else
         {
-            t++;
+            j--;
         }
     }
 }
